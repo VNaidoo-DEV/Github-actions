@@ -32,7 +32,7 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-      working-directory: './VIRAAT NAIDOO IMAD ASSIGNMENT 1'
+      working-directory: '**/build.gradle*'
       
     - name: Accept Android SDK licenses
       run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
