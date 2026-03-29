@@ -27,12 +27,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: 'gradle'
-        cache-dependency-path: 'VIRAAT NAIDOO IMAD ASSIGNMENT 1/**/*.gradle*'
+        cache-dependency-path: '**/*.gradle.kts'
         
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-      working-directory: '**/build.gradle*'
+      working-directory: '**/build.gradle.kts*'
       
     - name: Accept Android SDK licenses
       run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
