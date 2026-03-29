@@ -17,9 +17,13 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    
+   steps:
+    - name: checkout code
+      uses: actions/checkout@v4
+      
 
-    steps:
-    - uses: actions/checkout@v4
+
 
     - name: Set up JDK 17
       uses: actions/setup-java@v4
@@ -30,7 +34,7 @@ jobs:
         
 
     - name: Grant execute permission for gradlew
-      run: chmod +x "./VIRAAT NAIDOO IMAD ASSIGNMENT 1/gradlew"
+      run: find . -name "gradlew" -exec chmod +x {} +
       
       
     - name: Accept Android SDK licenses
@@ -40,13 +44,14 @@ jobs:
 
     - name: Build with Gradle
       run: |
-        cd "VIRAAT NAIDOO IMAD ASSIGNMENT 1"
+        # Automatically find the project folder and enter it
+        PROJECT_DIR=$(dirname $(find . -name "gradlew" | head -n 1))
+        cd "$PROJECT_DIR"
         ./gradlew build
 
     - name: Run tests
       run: |
-        GRADLEW_PATH=$(find . -name "gradlew" | head -n 1)
-        PROJECT_DIR=$(dirname "$GRADLEW_PATH")
+        PROJECT_DIR=$(dirname $(find . -name "gradlew" | head -n 1))
         cd "$PROJECT_DIR"
         ./gradlew test
 
