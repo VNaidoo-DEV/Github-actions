@@ -30,7 +30,7 @@ jobs:
         
 
     - name: Grant execute permission for gradlew
-      run: find . -name "gradlew" -exec chmod +x {} +
+      run: chmod +x "./VIRAAT NAIDOO IMAD ASSIGNMENT 1/gradlew"
       
       
     - name: Accept Android SDK licenses
@@ -40,11 +40,8 @@ jobs:
 
     - name: Build with Gradle
       run: |
-        GRADLEW_PATH=$(find . -name "gradlew" | head -n 1)
-        PROJECT_DIR=$(dirname "$GRADLEW_PATH")
-        cd "$PROJECT_DIR"
+        cd "VIRAAT NAIDOO IMAD ASSIGNMENT 1"
         ./gradlew build
-
 
     - name: Run tests
       run: |
