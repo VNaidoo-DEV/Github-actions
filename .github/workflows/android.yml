@@ -25,7 +25,8 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: 'gradle' # Add caching for faster builds
+        cache: 'gradle' # Optional: speeds up future builds
+        cache-dependency-path: 'VIRAAT NAIDOO IMAD ASSIGNMENT 1/**/*.gradle*'
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
