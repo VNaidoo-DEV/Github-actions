@@ -15,8 +15,9 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
- 
+
     steps:
     - uses: actions/checkout@v4
 
@@ -25,21 +26,15 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: 'gradle' # Optional: speeds up future builds
-        cache-dependency-path: 'VIRAAT NAIDOO IMAD ASSIGNMENT 1/**/*.gradle*'
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-      working-directory: './VIRAAT NAIDOO IMAD ASSIGNMENT 1'
-
-    # More robust license acceptance
+      
     - name: Accept Android SDK licenses
-      run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+      run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
 
     - name: Build with Gradle
       run: ./gradlew build
-      working-directory: './VIRAAT NAIDOO IMAD ASSIGNMENT 1'
+
     - name: Run tests
       run: ./gradlew test
-      working-directory: './VIRAAT NAIDOO IMAD ASSIGNMENT 1'
-
